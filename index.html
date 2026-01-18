@@ -2,116 +2,153 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>John’s Legendary Quest</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>John’s Legendary Quest by TIEG</title>
-  <link rel="stylesheet" href="style.css">
+
   <style>
-    /* Body and background */
     body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f5f5f7;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
       color: #222;
     }
 
-    /* Header / Novel Title */
-    header {
-      background: linear-gradient(to right, #4CAF50, #45a049);
-      padding: 25px 10px;
+    /* Top Navigation */
+    nav {
+      background: #2e7d32;
+      padding: 12px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    nav button {
+      background: none;
+      border: none;
       color: white;
-      text-align: center;
-      font-size: 2em;
+      font-size: 16px;
       font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
     }
 
-    /* Chapter container */
-    #chapter-content {
+    nav button:hover {
+      text-decoration: underline;
+    }
+
+    /* Sections */
+    section {
+      display: none;
       padding: 20px;
-      max-width: 800px;
-      margin: 20px auto;
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      line-height: 1.7;
-      font-size: 1rem;
+      max-width: 900px;
+      margin: auto;
     }
 
-    /* Headings */
-    h3 {
+    section.active {
+      display: block;
+    }
+
+    /* Header */
+    header {
       text-align: center;
-      font-size: 1.5em;
-      margin-bottom: 15px;
-      color: #333;
+      padding: 20px;
+      background: #4caf50;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
     }
 
-    /* Paragraphs */
-    p {
-      margin-bottom: 15px;
+    /* Chapter Card */
+    #chapter-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      line-height: 1.7;
     }
 
-    /* Navigation buttons */
+    /* Buttons */
     .nav-buttons {
       text-align: center;
-      margin: 30px 0;
+      margin-top: 20px;
     }
 
     .nav-buttons button {
-      background-color: #4CAF50;
+      padding: 10px 18px;
+      margin: 5px;
+      font-size: 16px;
+      background: #4caf50;
       border: none;
       color: white;
-      padding: 12px 25px;
-      margin: 5px;
-      font-size: 1.1rem;
-      border-radius: 10px;
+      border-radius: 6px;
       cursor: pointer;
-      transition: 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
     .nav-buttons button:hover {
-      background-color: #45a049;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-    }
-
-    /* Responsive for small screens */
-    @media (max-width: 600px) {
-      #chapter-content {
-        padding: 15px;
-        margin: 15px;
-        font-size: 0.95rem;
-      }
-
-      .nav-buttons button {
-        padding: 10px 18px;
-        font-size: 1rem;
-      }
+      background: #388e3c;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Novel Title Banner -->
-  <header>
-    John’s Legendary Quest by TIEG
-  </header>
+<header>
+  John’s Legendary Quest<br>
+  <small style="font-size:14px;">Written by TIEG</small>
+</header>
 
-  <!-- Chapter Content -->
-  <section id="novel">
-    <div id="chapter-content">
-      <!-- Chapters from script.js will load here -->
-    </div>
+<!-- Navigation -->
+<nav>
+  <button onclick="showSection('home')">Home</button>
+  <button onclick="showSection('about')">About</button>
+  <button onclick="showSection('novel')">Read Novel</button>
+</nav>
 
-    <!-- Navigation Buttons -->
-    <div class="nav-buttons">
-      <button id="prevBtn">Previous Chapter</button>
-      <button id="nextBtn">Next Chapter</button>
-    </div>
-  </section>
+<!-- HOME -->
+<section id="home" class="active">
+  <h2>Welcome</h2>
+  <p>
+    Welcome to <strong>John’s Legendary Quest</strong>, a dramatic adventure novel
+    filled with courage, betrayal, and destiny.
+  </p>
+  <p>
+    Read for free, then unlock premium chapters to continue the journey.
+  </p>
+</section>
 
-  <!-- Link to your JavaScript file -->
-  <script src="script.js"></script>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About the Author</h2>
+  <p>
+    <strong>TIEG</strong> is an independent writer and developer creating
+    original digital novels designed for modern web and mobile apps.
+  </p>
+  <p>
+    This novel is 100% original and protected as creative work.
+  </p>
+</section>
+
+<!-- NOVEL -->
+<section id="novel">
+  <div id="chapter-content">
+    <!-- Chapter loads here -->
+  </div>
+
+  <div class="nav-buttons">
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+  </div>
+</section>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll("section").forEach(sec => {
+      sec.classList.remove("active");
+    });
+    document.getElementById(id).classList.add("active");
+  }
+</script>
+
+<!-- Your chapter logic -->
+<script src="script.js"></script>
+
 </body>
 </html>

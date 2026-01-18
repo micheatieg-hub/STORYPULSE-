@@ -1,63 +1,28 @@
-`<h3>Chapter 1: The Journey Begins</h3>
+let currentChapter = 0;
 
-<p><em>Written by TIEG</em></p>
+const chapters = [
+  `<!-- Chapter 1 content goes here -->`,
+  `<!-- Chapter 2 content goes here -->`,
+  `<!-- Chapter 3 content goes here -->`
+];
 
-<p>John woke before dawn, not because of an alarm, but because his mind refused to rest. The room was dark, yet familiar shapes surrounded him—the small wooden table, the cracked wall, the window that had framed his dreams for as long as he could remember.</p>
+const chapterContent = document.getElementById("chapter-content");
 
-<p>He lay still, listening to his own breathing. Each breath felt heavier than the last, as though the weight of an unspoken decision pressed against his chest. Today was different. He knew it the moment his eyes opened.</p>
+// Load the first chapter
+chapterContent.innerHTML = chapters[currentChapter];
 
-<p>The silence in the house was deep. Too deep. It reminded him of all the mornings he had woken with hope, only to watch it fade by nightfall. This morning, however, hope felt sharper—dangerous even.</p>
+// Next button
+document.getElementById("nextBtn").addEventListener("click", () => {
+  if(currentChapter < chapters.length - 1) {
+    currentChapter++;
+    chapterContent.innerHTML = chapters[currentChapter];
+  }
+});
 
-<p>John slowly sat up. The floor was cold beneath his feet, sending a shiver through his body. He welcomed it. Pain, at least, reminded him that he was alive.</p>
-
-<p>His bag rested near the door, already packed. He had packed it the night before, carefully choosing what to take and what to leave behind. Each item carried a memory. Each memory carried doubt.</p>
-
-<p>He stood and walked toward the window. Outside, the sky was painted in shades of deep blue and grey. The town slept peacefully, unaware that one of its own was about to disappear from its familiar rhythm.</p>
-
-<p>“This is it,” John whispered to himself.</p>
-
-<p>His reflection in the glass startled him. He looked older than he remembered. Not in years, but in experience. His eyes held questions no one around him had ever answered.</p>
-
-<p>For a long moment, he thought of staying. Of choosing comfort over uncertainty. Of living the same days over and over again, convincing himself that survival was enough.</p>
-
-<p>But deep inside, a quiet voice spoke.</p>
-
-<p><strong>This is not why you were born.</strong></p>
-
-<p>John turned away from the window and picked up his bag. It was heavier than it should have been—not because of its contents, but because of what it represented.</p>
-
-<p>He moved through the house slowly, touching the walls as if to memorize their texture. Memories rushed in without permission: laughter, arguments, promises made and broken.</p>
-
-<p>At the door, he paused.</p>
-
-<p>Fear arrived suddenly, sharp and cold. What if he failed? What if the world beyond this town was crueler than the one he was leaving behind?</p>
-
-<p>His hand trembled on the handle.</p>
-
-<p>Then he remembered the nights spent staring at the ceiling, feeling trapped in a life that did not belong to him. He remembered the dreams that refused to die.</p>
-
-<p>With a deep breath, John opened the door.</p>
-
-<p>The morning air rushed in, fresh and unforgiving. The sky had begun to lighten, and the first birds sang as though announcing his departure.</p>
-
-<p>He stepped outside.</p>
-
-<p>The door closed behind him with a soft click, a sound that echoed louder than thunder in his mind. He did not turn back.</p>
-
-<p>The road stretched ahead, quiet and uncertain. Each step away from home felt like a challenge issued by the universe itself.</p>
-
-<p>As he walked, memories tried to pull him back—faces of people who never believed, voices that mocked his ambition. He let them fade with each step.</p>
-
-<p>The sun finally broke through the horizon, casting warm light across the road. John felt it on his skin and allowed himself a small smile.</p>
-
-<p>For the first time in his life, he was not running away.</p>
-
-<p>He was moving toward something.</p>
-
-<p>What awaited him, he did not know. Pain, triumph, loss, or purpose—it could be any or all of them.</p>
-
-<p>But one truth was certain.</p>
-
-<p>This journey would change him forever.</p>
-
-<p>And so, as the day fully awakened, John continued forward, carrying nothing but his bag, his courage, and a destiny yet to be revealed.</p>`
+// Previous button
+document.getElementById("prevBtn").addEventListener("click", () => {
+  if(currentChapter > 0) {
+    currentChapter--;
+    chapterContent.innerHTML = chapters[currentChapter];
+  }
+});
