@@ -19,6 +19,9 @@
       padding: 12px;
       display: flex;
       justify-content: space-around;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     nav button {
@@ -52,8 +55,16 @@
       padding: 20px;
       background: #4caf50;
       color: white;
-      font-size: 24px;
-      font-weight: bold;
+    }
+
+    header h1 {
+      font-size: 2em;
+      margin: 0 0 5px 0;
+    }
+
+    header p {
+      margin: 5px 0;
+      font-size: 1em;
     }
 
     /* Chapter Card */
@@ -85,51 +96,69 @@
     .nav-buttons button:hover {
       background: #388e3c;
     }
+
+    /* Read Novel Button on Home */
+    .read-btn {
+      padding: 12px 20px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .read-btn:hover {
+      background: #388e3c;
+    }
+
   </style>
 </head>
 
 <body>
 
+<!-- HEADER WITH NOVEL INFO -->
 <header>
-  John’s Legendary Quest<br>
-  <small style="font-size:14px;">Written by TIEG</small>
+  <h1>John’s Legendary Quest</h1>
+  <p><em>Written by TIEG</em></p>
+  <p>Embark on a thrilling adventure! <strong>New chapters are added weekly</strong>.</p>
+  <button class="read-btn" onclick="showSection('novel')">Read Novel Now</button>
 </header>
 
-<!-- Navigation -->
+<!-- NAVIGATION -->
 <nav>
   <button onclick="showSection('home')">Home</button>
   <button onclick="showSection('about')">About</button>
   <button onclick="showSection('novel')">Read Novel</button>
 </nav>
 
-<!-- HOME -->
+<!-- HOME SECTION -->
 <section id="home" class="active">
   <h2>Welcome</h2>
   <p>
-    Welcome to <strong>John’s Legendary Quest</strong>, a dramatic adventure novel
-    filled with courage, betrayal, and destiny.
+    Welcome to <strong>John’s Legendary Quest</strong>, a dramatic adventure novel filled with courage, betrayal, and destiny.
   </p>
   <p>
-    Read for free, then unlock premium chapters to continue the journey.
+    Read free chapters here and unlock premium content soon!
   </p>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT SECTION -->
 <section id="about">
   <h2>About the Author</h2>
   <p>
-    <strong>TIEG</strong> is an independent writer and developer creating
-    original digital novels designed for modern web and mobile apps.
+    <strong>TIEG</strong> is an independent writer and developer creating original digital novels designed for modern web and mobile apps.
   </p>
   <p>
-    This novel is 100% original and protected as creative work.
+    This novel is 100% original. All rights reserved.
   </p>
 </section>
 
-<!-- NOVEL -->
+<!-- NOVEL SECTION -->
 <section id="novel">
   <div id="chapter-content">
-    <!-- Chapter loads here -->
+    <!-- Chapters from script.js will load here -->
   </div>
 
   <div class="nav-buttons">
@@ -138,6 +167,7 @@
   </div>
 </section>
 
+<!-- SCRIPT TO SWITCH SECTIONS -->
 <script>
   function showSection(id) {
     document.querySelectorAll("section").forEach(sec => {
@@ -147,7 +177,7 @@
   }
 </script>
 
-<!-- Your chapter logic -->
+<!-- SCRIPT TO LOAD CHAPTERS -->
 <script src="script.js"></script>
 
 </body>
